@@ -1,0 +1,19 @@
+[package]
+name = "change-graph"
+version = "0.1.0"
+edition = "2021"
+description = "An append-only change log for records edited on several devices: a pure merge with tombstones and conflicts for a person to settle."
+license = "MIT"
+repository = "https://github.com/rabbiveesh/change-graph"
+readme = "README.md"
+keywords = ["sync", "offline", "conflict", "event-log", "local-first"]
+categories = ["data-structures"]
+
+[features]
+# TypeScript types for the change types, for apps that pass them across a wasm boundary.
+tsify = ["dep:tsify", "dep:wasm-bindgen"]
+
+[dependencies]
+serde = { version = "1.0.229", features = ["derive"] }
+tsify = { version = "0.5.8", optional = true, features = ["js"] }
+wasm-bindgen = { version = "0.2", optional = true }
